@@ -32,7 +32,7 @@ class User < ApplicationRecord
       WHERE u.id != #{id}
       ORDER BY similarity_score DESC, u.name ASC
     SQL
-    self.class.find_by_sql(sql).tap {|list| p list.map { |u| [u.name, u.similarity_score] } }
+    self.class.find_by_sql(sql)
   end
 
   def inspect
